@@ -1,10 +1,10 @@
 # [level unrated] 문자열 곱하기 - 181940 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181940?language=swift) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181940?language=python3) 
 
 ### 성능 요약
 
-메모리: 16.5 MB, 시간: 0.02 ms
+메모리: 10.3 MB, 시간: 0.00 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 4일 19:41:26
+2024년 1월 4일 19:42:32
 
 ### 문제 설명
 
