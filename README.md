@@ -10,3 +10,7 @@ https://school.programmers.co.kr/learn/challenges?tab=algorithm_practice_kit
 
 ### SQL 연습
 https://school.programmers.co.kr/learn/challenges?tab=sql_practice_kit
+
+
+# 소프티어
+https://softeer.ai/practice
