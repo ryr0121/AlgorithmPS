@@ -12,12 +12,12 @@ var last = 0
 while lt <= rt {
     if arr[lt]<arr[rt] {
         if last<arr[lt] {
-            last = arr[lt];
+            last = arr[lt]
             lt+=1
             res.append("L")
             cnt += 1
         } else if last<arr[rt] {
-            last = arr[rt];
+            last = arr[rt]
             rt-=1
             res.append("R")
             cnt += 1
@@ -25,12 +25,12 @@ while lt <= rt {
         
     } else if arr[rt]<arr[lt] {
         if last<arr[rt] {
-            last = arr[rt];
+            last = arr[rt]
             rt-=1
             res.append("R")
             cnt += 1
         } else if last<arr[lt] {
-            last = arr[lt];
+            last = arr[lt]
             lt+=1
             res.append("L")
             cnt += 1
