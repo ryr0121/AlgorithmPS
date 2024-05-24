@@ -1,39 +1,36 @@
 import Foundation
 
-func dfs(_ x: Int,_ y: Int){
-    count += 1
-    visited[x][y] = true
-    for i in 0...3{
+let dx = [-1,0,1,0]
+let dy = [0,-1,0,1]
+func DFS(_ x: Int, _ y: Int) -> Void {
+    cnt += 1
+    board[x][y] = 0
+    for i in 0..<4 {
         let nx = x + dx[i]
         let ny = y + dy[i]
-        if nx >= 0 && nx < n && ny >= 0 && ny < n {
-            if arr[nx][ny] == 1 && !visited[nx][ny] { dfs(nx, ny) }
+        if nx > -1 && nx < n && ny > -1 && ny < n && board[nx][ny] == 1 {
+            DFS(nx,ny)
         }
     }
 }
 
-let n = Int(String(readLine()!))!
-var arr: [[Int]] = [[]]
-var visited = Array(repeating: Array(repeating: false, count: n + 1), count: n + 1)
+let n = Int(readLine()!)!
+var board:[[Int]] = []
+var cnt = 0
+var res:[Int] = []
+for _ in 0..<n {
+    board.append(readLine()!.map{Int(String($0))!})
+}
 
-let dx = [0, 0, 1, -1]
-let dy = [1, -1, 0, 0]
-var count = 0
-
-for _ in 1...n { arr.append(readLine()!.map{Int(String($0))!}) }
-arr.removeFirst()
-
-var result: [Int] = []
 for i in 0..<n {
     for j in 0..<n {
-        if arr[i][j] == 1 && !visited[i][j] {
-            count = 0
-            dfs(i, j)
-            result.append(count)
+        if board[i][j] == 1 {
+            cnt = 0
+            DFS(i,j)
+            res.append(cnt)
         }
     }
 }
-
-print(result.count)
-result.sort()
-print(result.map{String($0)}.joined(separator: "\n"))
+res.sort()
+print(res.count)
+for i in 0..<res.count { print(res[i]) }
