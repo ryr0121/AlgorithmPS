@@ -1,10 +1,10 @@
 import Foundation
 
 let n = Int(readLine()!)!
-var memo = Array(repeating: 0, count: n)
-memo[0] = 1
-memo[1] = 2
+var len = Array(repeating: 0, count: n)
+len[0] = 1
+len[1] = 2
 for i in 2..<n {
-    memo[i] = memo[i-1] + memo[i-2]
+    len[i] = len[i-1] + len[i-2]
 }
-print(memo[n-1])
+print(len[n-1])
