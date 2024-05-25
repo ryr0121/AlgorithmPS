@@ -6,11 +6,7 @@ func DFS(_ x: Int, _ y: Int) -> Int {
     else {
         if x == 0 { memo[x][y] = DFS(x,y-1) + board[x][y] }
         else if y == 0 { memo[x][y] = DFS(x-1,y) + board[x][y] }
-        else {
-            let top = DFS(x-1,y)
-            let left = DFS(x,y-1)
-            memo[x][y] = ((top < left) ? top : left) + board[x][y]
-        }
+        else { memo[x][y] = [DFS(x-1,y),DFS(x,y-1)].min()! + board[x][y] }
         return memo[x][y]
     }
 }
