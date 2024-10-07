@@ -8,25 +8,26 @@ class Main {
         String s = br.readLine();
         StringTokenizer st = new StringTokenizer(s);
         
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
 
+        StringBuilder sb = new StringBuilder();
         if (a == b) {
             System.out.println(0);
         } else {
             if (a > b) {
-                int temp = a;
+                long temp = a;
                 a = b;
                 b = temp;
             }
             int cnt = 0;
             String answer = "";
-            for (int i=a+1; i<b; i++) {
+            for (long i=a+1; i<b; i++) {
                 cnt++;
-                answer += i + " ";
+                sb.append(i).append(" ");
             }
             System.out.println(cnt);
-            System.out.println(answer);
+            System.out.println(sb);
         }
     }
 }
