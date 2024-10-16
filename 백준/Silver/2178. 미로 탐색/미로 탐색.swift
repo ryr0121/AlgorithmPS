@@ -1,3 +1,4 @@
+2178
 import Foundation
 
 var input = readLine()!.split(separator: " ").map { Int(String($0))! }
