@@ -1,21 +1,23 @@
+import Foundation
+
 let nk = readLine()!.split(separator: " ").map{Int($0)!}
 var scores:[[Int]] = []
 for _ in 0..<nk[0] {
-    let input = readLine()!.split(separator: " ").map{Int($0)!}
-    let total = input[1]*100 + input[2]*10 + input[3]
-    scores.append([input[0],total])
+    scores.append(readLine()!.split(separator: " ").map{Int($0)!})
 }
-scores.sort(by: { $0[1] > $1[1] })
 
-var rank = 1
-for i in 0..<nk[0]-1 {
-    scores[i].append(rank)
-    if scores[i][1] != scores[i+1][1] { rank += 1 }
-}
-scores[nk[0]-1].append(rank)
+scores.sort(by: {      
+    $0[1] == $1[1] ? $0[2] == $1[2] ? $0[3] > $1[3] : $0[2] > $1[2] : $0[1] > $1[1]
+})
 
-var res = 0
 for i in 0..<nk[0] {
-    if scores[i][0] == nk[1] { res = scores[i][2] }
+    if scores[i][0] == nk[1] {
+        var idx = i
+        while true {
+            guard idx > 0 else { print(1); break; } 
+            if scores[idx-1][1...] == scores[idx][1...] { idx -= 1 }
+            else { print(idx+1); break; }
+        }
+        break
+    }
 }
-print(res)
