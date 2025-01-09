@@ -3,20 +3,24 @@ import java.lang.*;
 import java.io.*;
 
 class Main {
+    static long value = 1;
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        long A = sc.nextInt();
-        long B = sc.nextInt();
-        long C = sc.nextInt();
+        long A = sc.nextLong();
+        long B = sc.nextLong();
+        long C = sc.nextLong();
 
-        System.out.println(pow(A,B,C));
+        System.out.print(getResult(A,B,C));
     }
 
-    public static long pow(long a, long b, long c) {
-        if(b == 1) return a%c;
+    static long getResult(long a, long b, long c) {
+        if(b == 1) return a % c;   // base condition
 
-        long tmp = pow(a, b/2, c);
-        if(b%2 == 1) return (tmp*tmp%c)*a%c;
-        else return tmp*tmp%c;
-    } 
+        long res = getResult(a, b/2, c);
+        res = res * res % c;
+        
+        if(b%2 == 0) return res;
+        else return res * a % c;
+    }
 }
