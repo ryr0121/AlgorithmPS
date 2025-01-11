@@ -1,27 +1,25 @@
-import Foundation
+let input = readLine()!.split(separator: " ").map{Int($0)!}
+let N = input[0]
+let M = input[1]
 
-func solution(_ n: Int, _ m: Int) -> Void {
-    let temp:[Int] = []
-    dfs(arr: temp, m: m, n: n)
-}
+var nums:[Int] = Array(repeating: 0, count: M)
+var ch:[Bool] = Array(repeating: false, count: N)
 
-func dfs(arr: [Int], m: Int, n: Int) -> Void {
-    if (arr.count == m) {
+getResult(0)
+
+func getResult(_ idx: Int) -> Void {
+    if(idx == M) {
         var str = ""
-        for a in arr { str += "\(a) " }
+        for i in 0..<M { str += "\(nums[i]) " }
         print(str)
         return
     }
-
-    var temp = arr
-    for p in 1...n {
-        if !temp.contains(p) {
-            temp.append(p)
-            dfs(arr: temp, m: m, n: n)
-            temp.remove(at: temp.count-1)
+    for i in 0..<N {
+        if(!ch[i]) {
+            nums[idx] = i+1
+            ch[i] = true
+            getResult(idx+1)
+            ch[i] = false
         }
     }
 }
-
-let input = readLine()!.components(separatedBy: " ")
-solution(Int(input[0])!, Int(input[1])!)
