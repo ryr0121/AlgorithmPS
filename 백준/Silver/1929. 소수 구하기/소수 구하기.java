@@ -6,6 +6,7 @@ class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
         
         int M = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
@@ -19,7 +20,8 @@ class Main {
         }
 
         for(int i=M; i<=N; i++) {
-            if(!ch[i]) System.out.println(i);
+            if(!ch[i]) sb.append(i).append("\n");
         }
+        System.out.println(sb);
     }
 }
