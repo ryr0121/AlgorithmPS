@@ -8,14 +8,13 @@ class Main {
         StringBuilder sb = new StringBuilder();
         
         int N = Integer.parseInt(br.readLine());
-        int i = 2;
-        while(N > 1) {
+        for(int i=2; i*i<=N; i++) {
             while(N%i == 0) {
-                N /= i;
                 sb.append(i).append("\n");
+                N /= i;
             }
-            i++;
         }
+        if(N != 1) sb.append(N);
         System.out.println(sb);
     }
 }
