@@ -1,10 +1,13 @@
 class Solution {
-    public int[] solution(long n) {
+    public int[] solution(long n) {        
         String str = Long.toString(n);
-        int[] answer = new int[str.length()];
-        for(int i=str.length()-1; i>-1; i--) {
-            answer[str.length()-1-i] = str.charAt(i)-'0';
+        int len = str.length();
+        int[] answer = new int[len];
+        
+        for(int i=0; i<len; i++) {
+            answer[i] = Character.getNumericValue(str.charAt(len-1-i));
         }
+        
         return answer;
     }
 }
